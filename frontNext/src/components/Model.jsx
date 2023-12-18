@@ -42,6 +42,14 @@ const Model = () => {
       mesh.castShadow = true; // Включение отбрасывания теней
       scene.add(mesh);
 
+      
+      //Create a matrix
+      var matrix = new THREE.Matrix4();
+      //Rotate the matrix
+      matrix.makeRotationY(Math.PI / 4);
+      mesh.position.applyMatrix4(matrix);
+
+      
       // Вывод информации о модели в консоль
       console.log('Модель загружена:', mesh);
     });
@@ -53,7 +61,7 @@ const Model = () => {
     controls.rotateSpeed = 0.5;
 
     const light = new THREE.DirectionalLight(0xffffff, 1); // Добавление направленного света
-    light.position.set(0, 10, 0);
+    light.position.set(5, 2, 5);
     light.castShadow = true; // Включение отбрасывания теней от источника света
     scene.add(light);
 
